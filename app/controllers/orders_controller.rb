@@ -16,6 +16,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:recurring, :quantity, :user_id)
+    params.require(:order).permit(:recurring, :quantity, :user_id, :itemsarray, :tomato, :cucumber, :carrot, :cabbage, :broccoli, :spinach, :kale, :celery, :greenpepper, :okra, :corn, :squash, :onion)
   end
 end

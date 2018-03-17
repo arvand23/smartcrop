@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317182958) do
+ActiveRecord::Schema.define(version: 20180317205051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20180317182958) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "itemsarray", array: true
+    t.boolean "tomato", default: false
+    t.boolean "cucumber", default: false
+    t.boolean "carrot", default: false
+    t.boolean "cabbage", default: false
+    t.boolean "broccoli", default: false
+    t.boolean "spinach", default: false
+    t.boolean "kale", default: false
+    t.boolean "celery", default: false
+    t.boolean "greenpepper", default: false
+    t.boolean "okra", default: false
+    t.boolean "corn", default: false
+    t.boolean "squash", default: false
+    t.boolean "onion", default: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -39,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180317182958) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "itemsarray", array: true
   end
 
   add_foreign_key "orders", "users"

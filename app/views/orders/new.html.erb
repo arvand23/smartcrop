@@ -1,15 +1,7 @@
 <% if current_user.present? %>
   Make a new order
-  <%= current_user.full_name %>
+  <%= current_user.id %>
   </br>
-    <% @items_in_excess.each do |f| %>
-      <%= f.name %>
-    <% end %>
-  </br>
-    <% @items_not_in_excess.each do |f| %>
-      <%= f.name %>
-    <% end %>
-
   <% if @order.errors.any? %>
       <ul>
         <% @order.errors.full_messages.each do |msg| %>
@@ -19,6 +11,38 @@
     <% end %>
     <%= form_for @order do |f| %>
       <div>
+        <%= f.label :tomato %>
+        <%= f.check_box :tomato %>
+      </div>
+      <div>
+        <%= f.label :cucumber %>
+        <%= f.check_box :cucumber %>
+      </div>
+      <div>
+        <%= f.label :carrot %>
+        <%= f.check_box :carrot %>
+      </div>
+      <div>
+        <%= f.label :cabbage %>
+        <%= f.check_box :cabbage %>
+      </div>
+      <div>
+        <%= f.label :broccoli %>
+        <%= f.check_box :broccoli %>
+      </div>
+      <div>
+        <%= f.label :spinach %>
+        <%= f.check_box :spinach %>
+      </div>
+      <div>
+        <%= f.label :kale %>
+        <%= f.check_box :kale %>
+      </div>
+      <div>
+        <%= f.label :tomato %>
+        <%= f.check_box :tomato %>
+      </div>
+      <div>
         <%= f.label :quantity %>
         <%= f.text_field :quantity %>
       </div>
@@ -26,7 +50,7 @@
         <%= f.label :recurring %>
         <%= f.check_box :recurring %>
       </div>
-      <%= f.hidden_field(:user_id, value: current_user) %>
+      <%= f.hidden_field(:user_id, value: current_user.id) %>
       <%= f.submit %>
     <% end %>
 <% else %>
