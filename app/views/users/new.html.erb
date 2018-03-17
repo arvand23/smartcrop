@@ -1,0 +1,30 @@
+<h3 class="thin-text grey-text text-darken-3 thin-text">Sign Up</h3>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <!--<h6 class="thinnest-text">By using this service you're agreeing to our service fee of 10% + 30 cents per transaction plus any Stripe fees.</h6>-->
+  <%= f.submit 'Sign Up' %>
+<% end %>
